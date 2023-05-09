@@ -1,4 +1,7 @@
+#ifndef CLIENTSOCKET_H
+#define CLIENTSOCKET_H
 #pragma once
+
 #include <string>
 #include <fstream>
 
@@ -22,3 +25,5 @@ class File
         char * get_file_content();
         std::ofstream file_creation(char * file_name);
 };
+
+#endif

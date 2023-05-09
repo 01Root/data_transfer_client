@@ -1,3 +1,7 @@
+#ifndef CLIENTSOCKET_H
+#define CLIENTSOCKET_H
+#pragma once
+
 #include <iostream>
 #include <sys/socket.h>
 #include <unistd.h>
@@ -40,3 +44,4 @@ class clientSocket
         void client_close();
 };
 
+#endif
