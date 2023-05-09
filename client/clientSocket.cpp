@@ -49,6 +49,7 @@ void clientSocket::client_connection()
 // send message
 void clientSocket::client_send(char * message)
 {
+    memset(buffer, '0', sizeof(buffer));
     strcpy(buffer, message);
     send(client_fd, buffer, strlen(buffer) + 1, 0);
 
@@ -57,6 +58,7 @@ void clientSocket::client_send(char * message)
 }
 void clientSocket::client_send (int message)
 {
+    memset(buffer, '0', sizeof(buffer));
     sprintf(buffer, "%d", message);
     send(client_fd, buffer, strlen(buffer) + 1, 0);
 
