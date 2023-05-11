@@ -38,13 +38,13 @@ int main (void)
     std::ifstream &ifs = file.get_ifs();
 
     // Buffer size 1 Megabyte (or any number you like)
-    size_t buffer_size = 1<<20;
-    char *buffer = new char[buffer_size];
+    size_t buffer_size = 1024;
+    char *buff = new char[buffer_size];
 
     while (ifs)
     {
         // Try to read next chunk of data
-        ifs.read(buffer, buffer_size);
+        ifs.read(buff, buffer_size);
         // Get the number of bytes actually read
         size_t count = ifs.gcount();
         // If nothing has been read, break
@@ -54,7 +54,7 @@ int main (void)
         // ...
     }
 
-    delete[] buffer;
+    delete[] buff;
 
     return 0;
 }

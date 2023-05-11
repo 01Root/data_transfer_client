@@ -20,6 +20,12 @@ clientSocket::~clientSocket()
     client_close();
 }
 
+// get function 
+int clientSocket::get_client_fd()
+{
+    return this->client_fd;
+}
+
 // socket creation 
 void clientSocket::client_socket_creation()
 {

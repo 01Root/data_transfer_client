@@ -30,6 +30,9 @@ class clientSocket
         clientSocket();
         ~clientSocket();
 
+        // get function 
+        int get_client_fd();
+
         // socket creation 
         void client_socket_creation();
 
