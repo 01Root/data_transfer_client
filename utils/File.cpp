@@ -11,6 +11,7 @@
 File::File (std::string file_path)
 {
     this->file_path = file_path;
+    ifs.open(file_path);
 }
 File::File(){}
 
@@ -18,12 +19,6 @@ File::File(){}
 File::~File()
 {
     ifs.close();
-}
-
-// operator
-void File::operator= (File&)
-{
-    
 }
 
 // function 
@@ -52,30 +47,23 @@ char* File::get_file_name(char * file_path)
 
     return file_name;
 }
-char * File::get_file_content()
-{
-    int length;
+// char * File::get_file_content()
+// {
+//     int length;
 
-    // open the input file and go to the end.
-    ifs.open(file_path);     
-    ifs.seekg(0, std::ios::end);    
+//     // open the input file and go to the end.
+//     ifs.open(file_path);     
+//     ifs.seekg(0, std::ios::end);    
 
-    // get the length;
-    length = ifs.tellg();           
+//     // get the length;
+//     length = ifs.tellg();           
 
-    // back to the beginning.
-    ifs.seekg(0, std::ios::beg);    
+//     // back to the beginning.
+//     ifs.seekg(0, std::ios::beg);    
     
-    // read the whole file into the buffer.
-    char * buffer = new char[length];    
-    ifs.read(buffer, length);                   
+//     // read the whole file into the buffer.
+//     char * buffer = new char[length];    
+//     ifs.read(buffer, length);                   
     
-    return buffer;
-}
-
-
-std::ofstream File::file_creation(char * file_name)
-{
-    std::ofstream recv_file (file_name);
-    return recv_file;
-}
+//     return buffer;
+// }

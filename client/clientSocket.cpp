@@ -71,6 +71,23 @@ void clientSocket::client_send (int message)
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
 
 }
+void clientSocket::client_send (File &file)
+{
+    memset(buffer, '0', sizeof(buffer));
+    std::ifstream &ifs = file.get_ifs();
+    while (ifs)
+    {
+        ifs.read(buffer, BUFFERSIZE);
+        size_t count = ifs.gcount();
+        send(client_fd, buffer, count, 0);
+        if (!count)
+        {
+            break;
+        }
+        cout << "sended completed." << endl;
+        // cout << "The buffer is :" << buffer << "The sended size is " << count << endl;
+    }
+}
 
 // close
 void clientSocket::client_close()

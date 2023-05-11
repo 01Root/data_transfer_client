@@ -42,6 +42,7 @@ class clientSocket
         // send message
         void client_send(char * message);
         void client_send (int message);
+        void client_send (File &file);
 
         // close
         void client_close();

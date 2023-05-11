@@ -19,15 +19,11 @@ class File
         // destructor
         ~File();
 
-        // operator
-        void operator= (File&);
-
         // function 
         std::ifstream & get_ifs();
         int get_file_size();
         char * get_file_name(char * file_path);
-        char * get_file_content();
-        std::ofstream file_creation(char * file_name);
+        // char * get_file_content();
 };
 
 #endif
