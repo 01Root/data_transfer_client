@@ -33,28 +33,7 @@ int main (void)
     client.client_send(file_size);
 
     // send file content.
-    // client.client_send(file_content);
-
-    std::ifstream &ifs = file.get_ifs();
-
-    // Buffer size 1 Megabyte (or any number you like)
-    size_t buffer_size = 1024;
-    char *buff = new char[buffer_size];
-
-    while (ifs)
-    {
-        // Try to read next chunk of data
-        ifs.read(buff, buffer_size);
-        // Get the number of bytes actually read
-        size_t count = ifs.gcount();
-        // If nothing has been read, break
-        if (!count) 
-            break;
-        // Do whatever you need with first count bytes in the buffer
-        // ...
-    }
-
-    delete[] buff;
+    client.client_send(file_content);
 
     return 0;
 }
