@@ -16,7 +16,7 @@ int main (void)
 
     // string file_path = "/home/leonard/Desktop/data_transfer_client/sended_files/1M.txt";
     // 314 309 304
-    char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/data_for_transfer.txt";
+    char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/1GB.txt";
 
     File file(file_path);
     clientSocket client;

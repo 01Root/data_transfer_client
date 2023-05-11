@@ -11,7 +11,7 @@
 File::File (std::string file_path)
 {
     this->file_path = file_path;
-    ifs.open(file_path);
+    ifs.open(file_path, std::ios::in | std::ios::binary);
 }
 File::File(){}
 
