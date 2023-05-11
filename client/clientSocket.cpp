@@ -80,13 +80,10 @@ void clientSocket::client_send (File &file)
         ifs.read(buffer, BUFFERSIZE);
         size_t count = ifs.gcount();
         send(client_fd, buffer, count, 0);
-        // send(client_fd, buffer, BUFFERSIZE, 0);
         if (!count)
         {
             break;
         }
-        // cout << "sended buffer is " << buffer << endl;
-        // cout << "The sended size is " << count << endl;
     }
     cout << "sended completely." << endl;
 }

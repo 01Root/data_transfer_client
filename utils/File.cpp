@@ -47,23 +47,3 @@ char* File::get_file_name(char * file_path)
 
     return file_name;
 }
-// char * File::get_file_content()
-// {
-//     int length;
-
-//     // open the input file and go to the end.
-//     ifs.open(file_path);     
-//     ifs.seekg(0, std::ios::end);    
-
-//     // get the length;
-//     length = ifs.tellg();           
-
-//     // back to the beginning.
-//     ifs.seekg(0, std::ios::beg);    
-    
-//     // read the whole file into the buffer.
-//     char * buffer = new char[length];    
-//     ifs.read(buffer, length);                   
-    
-//     return buffer;
-// }

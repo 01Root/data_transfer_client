@@ -16,7 +16,7 @@ int main (void)
 
     // string file_path = "/home/leonard/Desktop/data_transfer_client/sended_files/1M.txt";
     // 314 309 304
-    char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/1GB.txt";
+    char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/1K.txt";
 
     File file(file_path);
     clientSocket client;
@@ -24,7 +24,6 @@ int main (void)
     // read file name, file size, and content.
     char * file_name = file.get_file_name(file_path); 
     int file_size = file.get_file_size();
-    // char * file_content = file.get_file_content();
     
     // send file name
     client.client_send(file_name);
@@ -33,7 +32,6 @@ int main (void)
     client.client_send(file_size);
 
     // send file content.
-    // client.client_send(file_content);
     client.client_send(file);
     
 
