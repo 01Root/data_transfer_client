@@ -20,7 +20,18 @@ File::~File()
     ifs.close();
 }
 
+// operator
+void File::operator= (File&)
+{
+    
+}
+
 // function 
+std::ifstream& File::get_ifs()
+{
+    return this->ifs;
+}
+
 int File::get_file_size()
 {
     char * cfile_path = (char *) file_path.data();
