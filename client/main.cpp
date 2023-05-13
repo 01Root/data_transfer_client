@@ -14,7 +14,6 @@ int main (void)
 {
     ifstream is;
 
-    // string file_path = "/home/leonard/Desktop/data_transfer_client/sended_files/1M.txt";
     // 314 309 304
     char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/1K.txt";
 
