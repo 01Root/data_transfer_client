@@ -57,28 +57,39 @@ void clientSocket::client_send(char * message)
 {
     memset(buffer, '0', sizeof(buffer));
     strcpy(buffer, message);
+    for (int i = 0; i < 1024; ++i)
+    {
+        std::cout << buffer[i];
+    }
     send(client_fd, buffer, strlen(buffer) + 1, 0);
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
-    
 }
 void clientSocket::client_send (int message)
 {
     memset(buffer, '0', sizeof(buffer));
     sprintf(buffer, "%d", message);
+    for (int i = 0; i < 1024; ++i)
+    {
+        std::cout << buffer[i];
+    }
     send(client_fd, buffer, strlen(buffer) + 1, 0);
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
-
 }
 void clientSocket::client_send (File &file)
 {
+    std::cout << "start send file content." << std::endl;
     memset(buffer, '0', sizeof(buffer));
     std::ifstream &ifs = file.get_ifs();
     while (ifs)
     {
         ifs.read(buffer, BUFFERSIZE);
         size_t count = ifs.gcount();
+        // for (int i = 0; i < 1024; ++i)
+        // {
+        //     std::cout << buffer[i];
+        // }
         send(client_fd, buffer, count, 0);
         if (!count)
         {
