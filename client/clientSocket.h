@@ -22,6 +22,7 @@ class clientSocket
         int client_fd;
         int addr_length;
         int connect_status;
+        int send_status;
         struct sockaddr_in address;
         char buffer[BUFFERSIZE] = {0};
 
@@ -43,6 +44,12 @@ class clientSocket
         void client_send(char * message);
         void client_send (int message);
         void client_send (File &file);
+        
+        void client_send_data(File &file);
+
+        // send message 
+        void client_send_file_name(File &file);
+        void send_file_size(File &file);
 
         // close
         void client_close();

@@ -25,16 +25,18 @@ int main (void)
     int file_size = file.get_file_size();
     
     // send file name
-    client.client_send(file_name);
+    // client.client_send(file_name);
+    client.client_send_file_name(file);
 
-    // sleep(1);
+    client.send_file_size(file);
     
-    // send file size.
-    client.client_send(file_size);
+    // // send file size.
+    // client.client_send(file_size);
 
-    // send file content.
-    client.client_send(file);
+    // // send file content.
+    // client.client_send(file);
     
+    // client.client_send_data(file);
 
     return 0;
 }
