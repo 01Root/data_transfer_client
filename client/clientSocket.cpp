@@ -83,16 +83,39 @@ void clientSocket::send_file_content (File &file)
     {
         ifs.read(buffer, BUFFERSIZE);
         size_t count = ifs.gcount();
+        if(count != BUFFERSIZE)
+        {
+            buffer[count] = '\0';
+        }
+        // buffer[count] = '\0';
+
         // for (int i = 0; i < 1024; ++i)
         // {
         //     std::cout << buffer[i];
         // }
+        // std::cout << buffer;
         send(client_fd, buffer, BUFFERSIZE, 0);
         if (!count)
         {
             break;
         }
     }
+    // while (ifs.read(buffer, BUFFERSIZE))
+    // {
+    //     // ifs.read(buffer, BUFFERSIZE);
+    //     size_t count = ifs.gcount();
+    //     buffer[count] = '\0';
+    //     for (int i = 0; i < 1024; ++i)
+    //     {
+    //         std::cout << buffer[i];
+    //     }
+    //     send(client_fd, buffer, BUFFERSIZE, 0);
+    //     if (!count)
+    //     {
+    //         break;
+    //     }
+    //     std::cout << buffer;
+    // }
     cout << "sended completely." << endl;
 }
 
