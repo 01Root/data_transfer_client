@@ -3,6 +3,7 @@
 #include <sys/stat.h> // for struct stat
 #include <fstream>
 #include <libgen.h>
+#include <cstring>
 
 #include "File.h"
 
@@ -41,6 +42,19 @@ int File::get_file_size()
     return file_size;
 }
 
+
+// get file name.
+char * File::get_file_name()
+{
+    // char * file_path = this->file_path.c_str();
+    char *c_file_path = new char[this->file_path.length() + 1];
+    strcpy(c_file_path, this->file_path.c_str());
+    
+    char * file_name = basename(c_file_path);
+    delete [] c_file_path;
+
+    return file_name;
+}
 char* File::get_file_name(char * file_path)
 {
     char * file_name = basename(file_path);

@@ -39,13 +39,11 @@ class clientSocket
 
         // connection 
         void client_connection();
-
-        // send message
-        void client_send (File &file);
         
         // send message 
         void send_file_name(File &file);
         void send_file_size(File &file);
+        void send_file_content (File &file);
 
         // close
         void client_close();

@@ -9,6 +9,7 @@ class File
 {
     private: 
         std::string file_path;
+        // char *  file_path;
         std::ifstream ifs;
 
     public: 
@@ -22,7 +23,9 @@ class File
         // function 
         std::ifstream & get_ifs();
         int get_file_size();
+        char * get_file_name();
         char * get_file_name(char * file_path);
+        
 };
 
 #endif

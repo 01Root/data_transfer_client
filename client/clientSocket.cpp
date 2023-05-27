@@ -70,13 +70,30 @@ void clientSocket::send_file_size(File &file)
 
     memset(buffer, '0', sizeof(buffer));
     sprintf(buffer, "%d", file_size);
-    for (int i = 0; i < 1024; ++i)
-    {
-        std::cout << buffer[i];
-    }
     send(client_fd, buffer, BUFFERSIZE, 0);
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
+}
+void clientSocket::send_file_content (File &file)
+{
+    std::cout << "start send file content." << std::endl;
+    memset(buffer, '0', sizeof(buffer));
+    std::ifstream &ifs = file.get_ifs();
+    while (ifs)
+    {
+        ifs.read(buffer, BUFFERSIZE);
+        size_t count = ifs.gcount();
+        // for (int i = 0; i < 1024; ++i)
+        // {
+        //     std::cout << buffer[i];
+        // }
+        send(client_fd, buffer, BUFFERSIZE, 0);
+        if (!count)
+        {
+            break;
+        }
+    }
+    cout << "sended completely." << endl;
 }
 
 // close
