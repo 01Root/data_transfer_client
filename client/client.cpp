@@ -21,6 +21,7 @@ int main (void)
     // send file name
     client.send_file_name(file);
 
+    // send file size 
     client.send_file_size(file);
 
     // send file content.

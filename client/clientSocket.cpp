@@ -70,7 +70,7 @@ void clientSocket::send_file_size(File &file)
 
     memset(buffer, '0', sizeof(buffer));
     sprintf(buffer, "%d", file_size);
-    send(client_fd, buffer, BUFFERSIZE, 0);
+    send(client_fd, buffer, BUFFER_SIZE, 0);
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
 }
@@ -81,9 +81,9 @@ void clientSocket::send_file_content (File &file)
     std::ifstream &ifs = file.get_ifs();
     while (ifs)
     {
-        ifs.read(buffer, BUFFERSIZE);
+        ifs.read(buffer, BUFFER_SIZE);
         size_t count = ifs.gcount();
-        if(count != BUFFERSIZE)
+        if(count != BUFFER_SIZE)
         {
             buffer[count] = '\0';
         }
@@ -94,22 +94,22 @@ void clientSocket::send_file_content (File &file)
         //     std::cout << buffer[i];
         // }
         // std::cout << buffer;
-        send(client_fd, buffer, BUFFERSIZE, 0);
+        send(client_fd, buffer, BUFFER_SIZE, 0);
         if (!count)
         {
             break;
         }
     }
-    // while (ifs.read(buffer, BUFFERSIZE))
+    // while (ifs.read(buffer, BUFFER_SIZE))
     // {
-    //     // ifs.read(buffer, BUFFERSIZE);
+    //     // ifs.read(buffer, BUFFER_SIZE);
     //     size_t count = ifs.gcount();
     //     buffer[count] = '\0';
     //     for (int i = 0; i < 1024; ++i)
     //     {
     //         std::cout << buffer[i];
     //     }
-    //     send(client_fd, buffer, BUFFERSIZE, 0);
+    //     send(client_fd, buffer, BUFFER_SIZE, 0);
     //     if (!count)
     //     {
     //         break;

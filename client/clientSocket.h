@@ -12,7 +12,7 @@
 #include "../utils/File.h"
 
 #define PORT 8080
-#define BUFFERSIZE 1024
+#define BUFFER_SIZE 1024
 
 using namespace std;
 
@@ -24,7 +24,7 @@ class clientSocket
         int connect_status;
         int send_status;
         struct sockaddr_in address;
-        char buffer[BUFFERSIZE] = {0};
+        char buffer[BUFFER_SIZE] = {0};
 
     public:
 
