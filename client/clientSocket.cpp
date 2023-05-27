@@ -97,7 +97,7 @@ void clientSocket::client_send (File &file)
     cout << "sended completely." << endl;
 }
 
-void clientSocket::client_send_file_name(File &file)
+void clientSocket::send_file_name(File &file)
 {
     char * file_name = file.get_file_name();
 

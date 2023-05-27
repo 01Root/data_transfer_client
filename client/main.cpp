@@ -26,7 +26,7 @@ int main (void)
     
     // send file name
     // client.client_send(file_name);
-    client.client_send_file_name(file);
+    client.send_file_name(file);
 
     client.send_file_size(file);
     

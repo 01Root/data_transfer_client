@@ -47,7 +47,7 @@ class clientSocket
         
 
         // send message 
-        void client_send_file_name(File &file);
+        void send_file_name(File &file);
         void send_file_size(File &file);
 
         // close
