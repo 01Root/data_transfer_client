@@ -88,59 +88,13 @@ void clientSocket::client_send (File &file)
         // {
         //     std::cout << buffer[i];
         // }
-        send(client_fd, buffer, count, 0);
+        send(client_fd, buffer, BUFFERSIZE, 0);
         if (!count)
         {
             break;
         }
     }
     cout << "sended completely." << endl;
-}
-
-void clientSocket::client_send_data(File &file)
-{
-    // char * file_name = file.get_file_name("/home/leonard/Desktop/data_transfer_client/sended_files/100M.txt");
-    // int file_size = file.get_file_size();
-    // char s_file_size[16];
-    // sprintf(s_file_size,"%ld", file_size);
-
-    // // to_string(s_file_size, file_size);
-
-    // memset(buffer, '0', sizeof(buffer));
-
-    // strcpy(buffer, file_name);
-    // buffer[strlen(file_name) + 1] = '\0';
-    // for (int i = 0; i < 16; ++i)
-    // {
-    //     buffer[strlen(file_name) + 1 + i] = s_file_size[i];
-    // }
-    // // strcat(buffer, s_file_size);
-
-    // for (int i = 0; i < 10; ++i)
-    // {
-    //     printf("%c", buffer[i]);
-    //     // std::cout << buffer[i];
-    // }
-
-    // send_status = send(client_fd, buffer, BUFFERSIZE, 0);
-
-    
-    // send_status = send(client_fd, buffer, strlen(buffer) + 1, 0);
-    // send_status = send(client_fd, buffer, strlen(buffer) + 4, 0);
-    // send_status = send(client_fd, buffer, 12, 0);
-    
-
-    // cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
-
-    memset(buffer, '0', sizeof(buffer));
-    char * file_name = file.get_file_name("/home/leonard/Desktop/data_transfer_client/sended_files/100M.txt");
-    strcpy(buffer, file_name);
-    send_status = send(client_fd, buffer, BUFFERSIZE, 0);
-
-    memset(buffer, '0', sizeof(buffer));
-    int file_size = file.get_file_size();
-    sprintf(buffer,"%ld", file_size);
-    send_status = send(client_fd, buffer, BUFFERSIZE, 0);
 }
 
 void clientSocket::client_send_file_name(File &file)
@@ -164,7 +118,7 @@ void clientSocket::send_file_size(File &file)
     {
         std::cout << buffer[i];
     }
-    send(client_fd, buffer, strlen(buffer), 0);
+    send(client_fd, buffer, BUFFERSIZE, 0);
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
 }

@@ -15,7 +15,7 @@ int main (void)
     ifstream is;
 
     // 314 309 304
-    char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/100M.txt";
+    char file_path[] = "/home/leonard/Desktop/data_transfer_client/sended_files/1K.txt";
 
     File file(file_path);
     clientSocket client;
@@ -33,11 +33,9 @@ int main (void)
     // // send file size.
     // client.client_send(file_size);
 
-    // // send file content.
-    // client.client_send(file);
+    // send file content.
+    client.client_send(file);
     
-    // client.client_send_data(file);
-
     return 0;
 }
 

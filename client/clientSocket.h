@@ -45,7 +45,6 @@ class clientSocket
         void client_send (int message);
         void client_send (File &file);
         
-        void client_send_data(File &file);
 
         // send message 
         void client_send_file_name(File &file);
