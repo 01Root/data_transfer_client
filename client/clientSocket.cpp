@@ -97,7 +97,7 @@ void clientSocket::send_file_content (File &file)
             buffer[count] = '\0';
         }
 
-        send(client_fd, buffer, BUFFER_SIZE, 0);
+        send_status = send(client_fd, buffer, BUFFER_SIZE, 0);
         if (!count)
         {
             break;
