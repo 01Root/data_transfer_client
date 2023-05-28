@@ -57,10 +57,10 @@ void clientSocket::send_file_name(File &file)
 {
     char * file_name = file.get_file_name();
 
-    memset(buffer, '0', sizeof(buffer));
+    memset(buffer, '0', BUFFER_SIZE);
     strcpy(buffer, file_name);
 
-    send_status = send(client_fd, buffer, sizeof(buffer), 0);
+    send_status = send(client_fd, buffer, BUFFER_SIZE, 0);
     // send_status = send(client_fd, buffer, strlen(buffer), 0);// This is the bug.
 
     cout << "The buffer is :" << buffer << endl;
@@ -69,7 +69,7 @@ void clientSocket::send_file_size(File &file)
 {
     int file_size = file.get_file_size();
 
-    memset(buffer, '0', sizeof(buffer));
+    memset(buffer, '0', BUFFER_SIZE);
     sprintf(buffer, "%d", file_size);
 
     send(client_fd, buffer, BUFFER_SIZE, 0);
@@ -80,7 +80,7 @@ void clientSocket::send_file_size(File &file)
 void clientSocket::send_file_content (File &file)
 {
     std::cout << "start send file content." << std::endl;
-    memset(buffer, '0', sizeof(buffer));
+    memset(buffer, '0', BUFFER_SIZE);
     std::ifstream &ifs = file.get_ifs();
     while (ifs)
     {
