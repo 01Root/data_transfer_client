@@ -8,7 +8,7 @@ echo "Running exe." echo $counter
 
 echo "Start run the comparison " 
 
-diff ../sended_files/100M.txt ../../multi_threading_server/recved_files/100M.txt || echo "diff says that the two files are not equal."
+diff ../sended_files/100M.txt ../../multi_threading_server/recved_files/100M.txt || echo "diff says thar the recved 100M file is not equal as the sended 100M file."
 # echo "The comparison is done."
 
 ((counter++))
