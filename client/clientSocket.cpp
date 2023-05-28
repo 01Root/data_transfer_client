@@ -60,8 +60,11 @@ void clientSocket::send_file_name(File &file)
     memset(buffer, '0', sizeof(buffer));
     strcpy(buffer, file_name);
 
-    send_status = send(client_fd, buffer, sizeof(buffer), 0);
-    // send_status = send(client_fd, buffer, strlen(buffer), 0);// This is the bug.
+    send_status = send(client_fd, buffer, sizeof(buffer), 0); // This is the right code.
+
+    // // This is the bug.
+    // buffer[strlen(buffer) + 1] = '\0'; // This is the bug.
+    // send_status = send(client_fd, buffer, strlen(buffer) + 1, 0);// This is the bug.
 
     cout << "The buffer is :" << buffer << endl;
 }
@@ -72,8 +75,11 @@ void clientSocket::send_file_size(File &file)
     memset(buffer, '0', sizeof(buffer));
     sprintf(buffer, "%d", file_size);
 
-    send(client_fd, buffer, BUFFER_SIZE, 0);
-    // send(client_fd, buffer, strlen(buffer), 0); // This is the bug.
+    send(client_fd, buffer, BUFFER_SIZE, 0); // This is the right code 
+
+    // // This is the bug.
+    // buffer[strlen(buffer) + 1] = '\0'; // This is the bug.
+    // send(client_fd, buffer, strlen(buffer) + 1, 0); // This is the bug.
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
 }
