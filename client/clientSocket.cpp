@@ -77,7 +77,7 @@ void clientSocket::send_file_size(File &file)
 
     send(client_fd, buffer, BUFFER_SIZE, 0); // This is the right code 
 
-    // // This is the bug.
+    // This is the bug.
     // buffer[strlen(buffer) + 1] = '\0'; // This is the bug.
     // send(client_fd, buffer, strlen(buffer) + 1, 0); // This is the bug.
 
