@@ -60,7 +60,8 @@ void clientSocket::send_file_name(File &file)
     memset(buffer, '0', sizeof(buffer));
     strcpy(buffer, file_name);
 
-    send_status = send(client_fd, buffer, sizeof(buffer), 0);
+    // send_status = send(client_fd, buffer, sizeof(buffer), 0);
+    send_status = send(client_fd, buffer, strlen(buffer), 0);// This is the bug.
 
     cout << "The buffer is :" << buffer << endl;
 }
@@ -70,7 +71,9 @@ void clientSocket::send_file_size(File &file)
 
     memset(buffer, '0', sizeof(buffer));
     sprintf(buffer, "%d", file_size);
-    send(client_fd, buffer, BUFFER_SIZE, 0);
+
+    // send(client_fd, buffer, BUFFER_SIZE, 0);
+    send(client_fd, buffer, strlen(buffer), 0); // This is the bug.
 
     cout << "The buffer is :" << buffer << "The buffer size is " << strlen(buffer) << endl;
 }
@@ -87,35 +90,14 @@ void clientSocket::send_file_content (File &file)
         {
             buffer[count] = '\0';
         }
-        // buffer[count] = '\0';
 
-        // for (int i = 0; i < 1024; ++i)
-        // {
-        //     std::cout << buffer[i];
-        // }
-        // std::cout << buffer;
         send(client_fd, buffer, BUFFER_SIZE, 0);
         if (!count)
         {
             break;
         }
     }
-    // while (ifs.read(buffer, BUFFER_SIZE))
-    // {
-    //     // ifs.read(buffer, BUFFER_SIZE);
-    //     size_t count = ifs.gcount();
-    //     buffer[count] = '\0';
-    //     for (int i = 0; i < 1024; ++i)
-    //     {
-    //         std::cout << buffer[i];
-    //     }
-    //     send(client_fd, buffer, BUFFER_SIZE, 0);
-    //     if (!count)
-    //     {
-    //         break;
-    //     }
-    //     std::cout << buffer;
-    // }
+
     cout << "sended completely." << endl;
 }
 
